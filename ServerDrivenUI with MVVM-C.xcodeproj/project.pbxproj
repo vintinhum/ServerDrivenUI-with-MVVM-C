@@ -56,7 +56,6 @@
 				154F56BE6A49A810F627646E /* Pods-ServerDrivenUI with MVVM-C.debug.xcconfig */,
 				60C9FC13668034E5667FB51C /* Pods-ServerDrivenUI with MVVM-C.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -186,9 +185,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ServerDrivenUI with MVVM-C/Pods-ServerDrivenUI with MVVM-C-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ServerDrivenUI with MVVM-C/Pods-ServerDrivenUI with MVVM-C-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
