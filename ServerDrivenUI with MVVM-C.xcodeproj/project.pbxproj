@@ -6,7 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8BFDFEC6B4BC738CBA46D3CA /* Pods_ServerDrivenUI_with_MVVM_C.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1663AA0592AFD4132D5605E /* Pods_ServerDrivenUI_with_MVVM_C.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		154F56BE6A49A810F627646E /* Pods-ServerDrivenUI with MVVM-C.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ServerDrivenUI with MVVM-C.debug.xcconfig"; path = "Target Support Files/Pods-ServerDrivenUI with MVVM-C/Pods-ServerDrivenUI with MVVM-C.debug.xcconfig"; sourceTree = "<group>"; };
+		60C9FC13668034E5667FB51C /* Pods-ServerDrivenUI with MVVM-C.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ServerDrivenUI with MVVM-C.release.xcconfig"; path = "Target Support Files/Pods-ServerDrivenUI with MVVM-C/Pods-ServerDrivenUI with MVVM-C.release.xcconfig"; sourceTree = "<group>"; };
+		E1663AA0592AFD4132D5605E /* Pods_ServerDrivenUI_with_MVVM_C.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ServerDrivenUI_with_MVVM_C.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFD991D22F0DA9350054C020 /* ServerDrivenUI with MVVM-C.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ServerDrivenUI with MVVM-C.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -36,17 +43,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BFDFEC6B4BC738CBA46D3CA /* Pods_ServerDrivenUI_with_MVVM_C.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94C08661191BA989B814A927 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				154F56BE6A49A810F627646E /* Pods-ServerDrivenUI with MVVM-C.debug.xcconfig */,
+				60C9FC13668034E5667FB51C /* Pods-ServerDrivenUI with MVVM-C.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E90256211A95164AC051449B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1663AA0592AFD4132D5605E /* Pods_ServerDrivenUI_with_MVVM_C.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EFD991C92F0DA9350054C020 = {
 			isa = PBXGroup;
 			children = (
 				EFD991D42F0DA9350054C020 /* ServerDrivenUI with MVVM-C */,
 				EFD991D32F0DA9350054C020 /* Products */,
+				94C08661191BA989B814A927 /* Pods */,
+				E90256211A95164AC051449B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,9 +93,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFD991E52F0DA9380054C020 /* Build configuration list for PBXNativeTarget "ServerDrivenUI with MVVM-C" */;
 			buildPhases = (
+				2F06D62D87F5D54E4CCE5F79 /* [CP] Check Pods Manifest.lock */,
 				EFD991CE2F0DA9350054C020 /* Sources */,
 				EFD991CF2F0DA9350054C020 /* Frameworks */,
 				EFD991D02F0DA9350054C020 /* Resources */,
+				362B4E2F573900B740C8ED93 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +107,6 @@
 				EFD991D42F0DA9350054C020 /* ServerDrivenUI with MVVM-C */,
 			);
 			name = "ServerDrivenUI with MVVM-C";
-			packageProductDependencies = (
-			);
 			productName = "ServerDrivenUI with MVVM-C";
 			productReference = EFD991D22F0DA9350054C020 /* ServerDrivenUI with MVVM-C.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +155,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2F06D62D87F5D54E4CCE5F79 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ServerDrivenUI with MVVM-C-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		362B4E2F573900B740C8ED93 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ServerDrivenUI with MVVM-C/Pods-ServerDrivenUI with MVVM-C-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ServerDrivenUI with MVVM-C/Pods-ServerDrivenUI with MVVM-C-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ServerDrivenUI with MVVM-C/Pods-ServerDrivenUI with MVVM-C-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EFD991CE2F0DA9350054C020 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +210,7 @@
 /* Begin XCBuildConfiguration section */
 		EFD991E62F0DA9380054C020 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 154F56BE6A49A810F627646E /* Pods-ServerDrivenUI with MVVM-C.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -170,6 +241,7 @@
 		};
 		EFD991E72F0DA9380054C020 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60C9FC13668034E5667FB51C /* Pods-ServerDrivenUI with MVVM-C.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
