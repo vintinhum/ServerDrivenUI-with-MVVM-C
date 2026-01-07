@@ -13,7 +13,7 @@ public class DependencyProvider {
     public let assembler: Assembler
     
     public init() {
-        assembler = Assembler([],
+        assembler = Assembler([AppAssembly()],
                               container: container)
     }
     
