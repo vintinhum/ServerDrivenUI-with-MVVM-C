@@ -1,12 +1,12 @@
 PODS:
-  - Alamofire (5.8.1)
+  - Alamofire (5.11.0)
   - RxCocoa (6.2.0):
     - RxRelay (= 6.2.0)
     - RxSwift (= 6.2.0)
   - RxRelay (6.2.0):
     - RxSwift (= 6.2.0)
   - RxSwift (6.2.0)
-  - Swinject (2.8.3)
+  - Swinject (2.9.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -23,12 +23,12 @@ SPEC REPOS:
     - Swinject
 
 SPEC CHECKSUMS:
-  Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
+  Alamofire: bd5e7b23a1a750975288482c1831d71e74415f86
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
-  Swinject: 893c9a543000ac2f10ee4cbaf0933c6992c935d5
+  Swinject: a827d508c6270da03ec74e558e728917a888fa9b
 
 PODFILE CHECKSUM: 73a64bd6d2dfbc6b150e9884a034e8c594eeef80
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.16.2
