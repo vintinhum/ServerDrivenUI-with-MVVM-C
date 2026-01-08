@@ -1,0 +1,3 @@
+Olá! Este projeto construído inteiramente em Swift implementa o conceito de Server Driven UI (ou Interface Dirigida por Servidor) em um aplicativo simples para iOS. A ideia é que o servidor forneça, através das respostas ao cliente, todos os elementos visuais a serem exibidos na interface do usuário através de dicionários. Estes serão decodificados e transformados em componentes visuais concretos no front-end em tempo real, fazendo assim com que qualquer alteração visual em uma tela possa ser feita com uma simples chamada ao servidor.
+
+O padrão de design adotado é o MVVM-C (Model-View-ViewModel-Coordinator), e utiliza diferentes frameworks como RxSwift para reatividade das funcionalidades, Swinject para injeção de dependências e Alamofire para chamadas de API.
