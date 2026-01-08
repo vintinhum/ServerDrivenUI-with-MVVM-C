@@ -1,0 +1,6 @@
+framework module Pods_ServerDrivenUI_with_MVVM_C {
+  umbrella header "Pods-ServerDrivenUI with MVVM-C-umbrella.h"
+
+  export *
+  module * { export * }
+}
