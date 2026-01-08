@@ -13,6 +13,7 @@ class ComponentSectionContainer: UITableView, ComponentSectionContainerProtocol 
     // MARK: - PUBLIC PROPERTIES
     
     let sectionFactory: ComponentSectionFactoryProtocol
+    weak var containerDelegate: ComponentSectionControllerDelegate?
     
     // MARK: - PRIVATE PROPERTIES
     

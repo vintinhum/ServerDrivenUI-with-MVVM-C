@@ -10,6 +10,7 @@ import UIKit
 
 protocol ComponentSectionContainerProtocol: UITableView {
     var sectionFactory: ComponentSectionFactoryProtocol { get }
+    var containerDelegate: ComponentSectionControllerDelegate? { get set }
     
     func updateSections(with sections: [ComponentSectionModel], forceReload: Bool)
     func loading()
