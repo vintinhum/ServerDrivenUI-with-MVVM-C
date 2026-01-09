@@ -8,5 +8,6 @@
 import Foundation
 
 protocol ComponentSectionFactoryProtocol {
+    func makeSectionView(for section: ComponentSectionProtocol) -> ComponentSectionViewProtocol?
     func makeSectionModels(with model: ComponentSectionResponseModel) -> ComponentSectionDataModel
 }

@@ -36,7 +36,7 @@ class ComponentSectionContainer: UITableView, ComponentSectionContainerProtocol 
     private func setupView() {
         delegate = self
         dataSource = self
-        register(UITableViewCell.self, forCellReuseIdentifier: "ComponentSectionContainerCell")
+        register(ComponentSectionContainerCell.self, forCellReuseIdentifier: "ComponentSectionContainerCell")
         rowHeight = UITableView.automaticDimension
         separatorColor = UIColor.clear
     }
@@ -66,6 +66,16 @@ class ComponentSectionContainer: UITableView, ComponentSectionContainerProtocol 
             self.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         }
     }
+    
+    private func makeSectionViews() -> [ComponentSectionViewProtocol] {
+        var sectionsViews: [ComponentSectionViewProtocol] = []
+        sections.forEach { sectionModel in
+            guard let sectionView = sectionFactory.makeSectionView(for: sectionModel.section) else { return }
+            sectionView.delegate = containerDelegate
+            sectionsViews.append(sectionView)
+        }
+        return sectionsViews
+    }
 }
 
 // MARK: - TABLE VIEW DELEGATE
@@ -80,7 +90,9 @@ extension ComponentSectionContainer: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = dequeueReusableCell(withIdentifier: "ComponentSectionContainerCell", for: indexPath)
+        let cell = dequeueReusableCell(withIdentifier: "ComponentSectionContainerCell", for: indexPath) as! ComponentSectionContainerCell
+        let sectionView = makeSectionViews()[indexPath.row]
+        cell.setup(with: sectionView)
         return cell
     }
     

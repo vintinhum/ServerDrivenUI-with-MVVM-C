@@ -22,6 +22,14 @@ class ComponentSectionFactory: ComponentSectionFactoryProtocol {
     
     // MARK: - PUBLIC METHODS
     
+    func makeSectionView(for section: ComponentSectionProtocol) -> ComponentSectionViewProtocol? {
+        switch section.identifier {
+        // Add a new case for each section to be developed.
+            
+        default: return nil
+        }
+    }
+    
     func makeSectionModels(with model: ComponentSectionResponseModel) -> ComponentSectionDataModel {
         var sectionModels: [ComponentSectionModel] = []
         
