@@ -25,5 +25,20 @@ class Coordinator: CoordinatorProtocol {
     
     // MARK: - PUBLIC METHODS
     
-    func start() { }
+    func start() {
+        goToHome(animated: false)
+    }
+    
+    func navigate(to route: Route) {
+        switch route {
+        case .home:
+            goToHome(animated: true)
+        }
+    }
+    
+    // MARK: - ROUTE
+    
+    enum Route {
+        case home
+    }
 }

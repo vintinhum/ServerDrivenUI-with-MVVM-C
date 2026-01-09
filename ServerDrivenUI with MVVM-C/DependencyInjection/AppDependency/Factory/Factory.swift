@@ -19,4 +19,20 @@ class Factory: FactoryProtocol {
     init(resolver: Resolver) {
         self.resolver = resolver
     }
+    
+    // MARK: - PRIVATE METHODS
+    
+    private func makeSectionContainer() -> ComponentSectionContainerProtocol {
+        let sectionFactory = resolver.resolveUnwrapping(ComponentSectionFactoryProtocol.self)
+        return ComponentSectionContainer(sectionFactory: sectionFactory)
+    }
+    
+    // MARK: - HomeViewController
+    
+    func makeHomeViewController() -> HomeViewController {
+        let retrieveHomeUseCase = resolver.resolveUnwrapping(RetrieveHomeUseCaseProtocol.self)
+        let viewModel = HomeViewModel(retrieveHomeUseCase: retrieveHomeUseCase)
+        return HomeViewController(viewModel: viewModel,
+                                  sectionContainer: makeSectionContainer())
+    }
 }

@@ -7,4 +7,6 @@
 
 import Foundation
 
-protocol FactoryProtocol { }
+protocol FactoryProtocol {
+    func makeHomeViewController() -> HomeViewController
+}
