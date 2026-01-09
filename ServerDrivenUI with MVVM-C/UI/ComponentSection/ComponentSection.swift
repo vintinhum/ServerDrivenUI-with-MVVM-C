@@ -7,8 +7,6 @@
 
 import Foundation
 
-public typealias ComponentSectionCodable = [String: AnyCodable]
-
 struct ComponentSectionModel {
     let section: ComponentSectionProtocol
 }

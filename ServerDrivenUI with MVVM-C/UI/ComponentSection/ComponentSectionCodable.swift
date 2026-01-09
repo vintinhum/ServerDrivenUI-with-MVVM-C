@@ -1,11 +1,13 @@
 //
-//  AnyCodable.swift
+//  ComponentSectionCodable.swift
 //  ServerDrivenUI with MVVM-C
 //
 //  Created by Vítor Bárrios Luís de Albuquerque on 08/01/26.
 //
 
 import Foundation
+
+public typealias ComponentSectionCodable = [String: AnyCodable]
 
 public struct AnyCodable: Codable {
     var value: Any?
