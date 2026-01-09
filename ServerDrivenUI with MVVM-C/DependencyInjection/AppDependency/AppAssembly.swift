@@ -30,5 +30,14 @@ class AppAssembly: Assembly {
         container.register(ServiceProtocol.self) { _ in
             return Service()
         }
+        
+        // MARK: - USE CASES
+        
+        container.register(RetrieveHomeUseCaseProtocol.self) { resolver in
+            let service = resolver.resolveUnwrapping(ServiceProtocol.self)
+            let sectionFactory = resolver.resolveUnwrapping(ComponentSectionFactoryProtocol.self)
+            return RetrieveHomeUseCase(service: service,
+                                       sectionFactory: sectionFactory)
+        }
     }
 }
