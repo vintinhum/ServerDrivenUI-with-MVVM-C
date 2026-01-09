@@ -8,11 +8,14 @@
 import Foundation
 
 enum Request: RequestProtocol {
-    case localHost
+    case getHome
+    case getLocalHost
     
     var path: String {
         switch self {
-        case .localHost:
+        case .getHome:
+            return "\(baseURL)/home"
+        case .getLocalHost:
             return baseURL
         }
     }

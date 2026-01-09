@@ -7,4 +7,7 @@
 
 import Foundation
 
-protocol ServiceProtocol { }
+protocol ServiceProtocol {
+    func getHome(request: Request,
+                 completion: @escaping (Result<ComponentSectionResponseModel, ServiceError>) -> Void)
+}

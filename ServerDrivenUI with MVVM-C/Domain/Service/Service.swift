@@ -10,6 +10,15 @@ import Alamofire
 
 class Service: ServiceProtocol {
     
+    // MARK: - PUBLIC METHODS
+    
+    func getHome(request: Request,
+                 completion: @escaping (Result<ComponentSectionResponseModel, ServiceError>) -> Void) {
+        handleRequest(with: request) { result in
+            completion(result)
+        }
+    }
+    
     // MARK: - PRIVATE METHODS
     
     private func handleRequest<T: Decodable>(with request: Request,
