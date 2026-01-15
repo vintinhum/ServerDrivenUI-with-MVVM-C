@@ -21,6 +21,6 @@ enum Request: RequestProtocol {
     }
     
     var baseURL: String {
-        return "http://localhost:3000"
+        return "https://6d7b493f-8fae-4dac-a2e4-853b3d1c8533.mock.pstmn.io/serverDrivenUI"
     }
 }
