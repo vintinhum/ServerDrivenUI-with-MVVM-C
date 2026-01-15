@@ -7,4 +7,10 @@
 
 import Foundation
 
-protocol ComponentSectionControllerDelegate: AnyObject { }
+protocol ComponentSectionControllerDelegate: AnyObject {
+    func sectionController(_ section: ComponentSectionViewProtocol, didSelect: ())
+}
+
+extension ComponentSectionControllerDelegate {
+    func sectionController(_ section: ComponentSectionViewProtocol, didSelect: ()) { }
+}

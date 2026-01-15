@@ -43,6 +43,7 @@ class ComponentSectionController: UIViewController, ComponentSectionControllerDe
     private func setupView() {
         view.backgroundColor = .clear
         navigationController?.hidesBarsOnSwipe = true
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func buildViewHierarchy() {
@@ -52,4 +53,8 @@ class ComponentSectionController: UIViewController, ComponentSectionControllerDe
     private func constraintUI() {
         sectionContainer.constraintToSuperView()
     }
+    
+    // MARK: - PUBLIC METHODS
+    
+    open func sectionController(_ section: ComponentSectionViewProtocol, didSelect: ()) { }
 }
