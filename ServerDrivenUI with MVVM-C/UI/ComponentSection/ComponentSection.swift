@@ -22,3 +22,18 @@ struct ComponentSectionResponseModel: Codable {
         case sections
     }
 }
+
+enum DefaultComponentSection: ComponentSectionProtocol {
+    case imageShowcaseSection(section: ImageShowcaseComponentSection)
+    
+    var identifier: String {
+        switch self {
+        case .imageShowcaseSection(let section):
+            return section.identifier
+        }
+    }
+}
+
+enum ComponentSection: String, Codable {
+    case imageShowcaseSection = "IMAGE_SHOWCASE_SECTION"
+}
