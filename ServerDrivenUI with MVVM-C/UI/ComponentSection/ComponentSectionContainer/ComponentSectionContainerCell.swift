@@ -25,7 +25,10 @@ final class ComponentSectionContainerCell: UITableViewCell {
     func setup(with section: ComponentSectionViewProtocol) {
         resetSubviews()
         contentView.addSubview(section)
-        section.constraintToSuperView(leading: 24, trailing: -24)
+        section.constraintToSuperView(top: 8,
+                                      leading: 24,
+                                      trailing: -24,
+                                      bottom: -8)
         layoutSubviews()
     }
     

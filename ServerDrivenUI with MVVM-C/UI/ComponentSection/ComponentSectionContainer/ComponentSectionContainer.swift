@@ -61,20 +61,20 @@ class ComponentSectionContainer: UITableView, ComponentSectionContainerProtocol 
     
     private func reload() {
         DispatchQueue.main.async {
-            self.reload()
+            self.reloadData()
             self.layoutSubviews()
             self.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         }
     }
     
     private func makeSectionViews() -> [ComponentSectionViewProtocol] {
-        var sectionsViews: [ComponentSectionViewProtocol] = []
+        var sectionViews: [ComponentSectionViewProtocol] = []
         sections.forEach { sectionModel in
             guard let sectionView = sectionFactory.makeSectionView(for: sectionModel.section) else { return }
             sectionView.delegate = containerDelegate
-            sectionsViews.append(sectionView)
+            sectionViews.append(sectionView)
         }
-        return sectionsViews
+        return sectionViews
     }
 }
 
@@ -91,7 +91,8 @@ extension ComponentSectionContainer: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = dequeueReusableCell(withIdentifier: "ComponentSectionContainerCell", for: indexPath) as! ComponentSectionContainerCell
-        let sectionView = makeSectionViews()[indexPath.row]
+        let sectionViews = makeSectionViews()
+        let sectionView = sectionViews[indexPath.row]
         cell.setup(with: sectionView)
         return cell
     }
