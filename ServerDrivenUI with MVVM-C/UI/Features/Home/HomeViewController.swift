@@ -43,6 +43,7 @@ class HomeViewController: ComponentSectionController {
     // MARK: - PRIVATE SETUP
     
     private func setupComponents() {
+        navigationItem.title = "Home"
         selfDelegate = delegate
     }
     
@@ -52,6 +53,10 @@ class HomeViewController: ComponentSectionController {
             handleViewState($0)
         }
     }
+    
+    // MARK: - ACTIONS
+    
+    override func sectionController(_ section: ComponentSectionViewProtocol, didSelect: ()) { }
     
     // MARK: - HANDLERS
     
