@@ -56,5 +56,13 @@ class ComponentSectionController: UIViewController, ComponentSectionControllerDe
     
     // MARK: - PUBLIC METHODS
     
-    open func sectionController(_ section: ComponentSectionViewProtocol, didSelect: ()) { }
+    open func sectionController(_ section: ComponentSectionViewProtocol, didSelectWith action: ComponentSectionActionProtocol) {
+        if let action = action as? ComponentSectionActionEvent {
+            handleComponentSectionActionEvent(action)
+        }
+    }
+    
+    // MARK: - HANDLERS
+    
+    private func handleComponentSectionActionEvent(_ action: ComponentSectionActionEvent) { }
 }

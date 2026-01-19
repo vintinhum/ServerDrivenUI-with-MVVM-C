@@ -8,9 +8,9 @@
 import Foundation
 
 protocol ComponentSectionControllerDelegate: AnyObject {
-    func sectionController(_ section: ComponentSectionViewProtocol, didSelect: ())
+    func sectionController(_ section: ComponentSectionViewProtocol, didSelectWith action: ComponentSectionActionProtocol)
 }
 
 extension ComponentSectionControllerDelegate {
-    func sectionController(_ section: ComponentSectionViewProtocol, didSelect: ()) { }
+    func sectionController(_ section: ComponentSectionViewProtocol, didSelectWith action: ComponentSectionActionProtocol) { }
 }
