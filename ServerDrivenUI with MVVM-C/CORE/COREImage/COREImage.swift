@@ -14,4 +14,5 @@ enum COREImage: String, Codable {
     case chevronRight = "chevron.right"
     case chevronRightCircle = "chevron.right.circle"
     case chevronRightCircleFill = "chevron.right.circle.fill"
+    case arrowClockwise = "arrow.clockwise"
 }
