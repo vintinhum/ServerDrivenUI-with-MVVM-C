@@ -14,17 +14,20 @@ struct ImageShowcaseComponentSection: ComponentSectionProtocol, Codable {
     let image: String
     let buttonTitle: String
     let buttonType: ButtonType?
+    var action: ComponentSectionActionCodable?
     
     init(identifier: String = ComponentSection.imageShowcaseSection.rawValue,
          title: String,
          image: String,
          buttonTitle: String,
-         buttonType: ButtonType? = .primary) {
+         buttonType: ButtonType? = .primary,
+         action: ComponentSectionActionCodable? = nil) {
         self.identifier = identifier
         self.title = title
         self.image = image
         self.buttonTitle = buttonTitle
         self.buttonType = buttonType
+        self.action = action
     }
     
     enum CodingKeys: String, CodingKey {
@@ -33,6 +36,7 @@ struct ImageShowcaseComponentSection: ComponentSectionProtocol, Codable {
         case image = "imageUrl"
         case buttonTitle
         case buttonType
+        case action
     }
 }
 

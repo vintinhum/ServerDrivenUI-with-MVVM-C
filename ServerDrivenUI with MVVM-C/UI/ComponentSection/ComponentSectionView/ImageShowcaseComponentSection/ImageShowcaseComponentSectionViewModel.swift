@@ -24,4 +24,8 @@ class ImageShowcaseComponentSectionViewModel {
     func getSection() -> ImageShowcaseComponentSection {
         return section
     }
+    
+    func getAction() -> ComponentSectionActionProtocol? {
+        return section._actionParse
+    }
 }

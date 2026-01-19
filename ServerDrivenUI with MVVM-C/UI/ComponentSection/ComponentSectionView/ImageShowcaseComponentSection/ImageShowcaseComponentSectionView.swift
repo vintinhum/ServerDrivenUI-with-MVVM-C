@@ -64,6 +64,7 @@ class ImageShowcaseComponentSectionView: UIView, ComponentSectionViewProtocol {
 
 extension ImageShowcaseComponentSectionView: ImageShowcaseComponentViewDelegate {
     func didTapView(_ view: ImageShowcaseComponentView) {
-        delegate?.sectionController(self, didSelect: ())
+        guard let action = viewModel.getAction() else { return }
+        delegate?.sectionController(self, didSelectWith: action)
     }
 }
