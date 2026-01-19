@@ -102,7 +102,7 @@ class ImageShowcaseComponentView: UIView {
         titleLabel.text = model.title
         handleImage(with: model.image)
         button.setup(with: .init(title: model.buttonTitle,
-                                 image: "chevron.right"))
+                                 image: COREImage.chevronRight))
         if let type = model.buttonType {
             handleButtonType(with: type)
         }
