@@ -25,6 +25,8 @@ class ComponentSectionFactory: ComponentSectionFactoryProtocol {
     func makeSectionView(for section: ComponentSectionProtocol) -> ComponentSectionViewProtocol? {
         switch section.identifier {
         // Add a new case for each section to be developed.
+        case ComponentSection.buttonSection.rawValue:
+            return makeButtonComponentSection(section)
         case ComponentSection.imageShowcaseSection.rawValue:
             return makeImageShowcaseSection(section)
         default:
@@ -47,17 +49,25 @@ class ComponentSectionFactory: ComponentSectionFactoryProtocol {
     
     private func makeSectionModel(for section: ComponentSectionCodable) -> ComponentSectionModel? {
         // This method will contain an 'if let' chain cyclying through all section components cases existing, making section models for each one.
-        if let section: ImageShowcaseComponentSection = section.decodeAnyCodable(),
-           section.identifier == ComponentSection.imageShowcaseSection.rawValue {
+        if let section: ButtonComponentSection = section.decodeAnyCodable(),
+            section.identifier == ComponentSection.buttonSection.rawValue {
+            return makeButtonComponentSectionModel(section)
+        } else if let section: ImageShowcaseComponentSection = section.decodeAnyCodable(),
+                    section.identifier == ComponentSection.imageShowcaseSection.rawValue {
             return makeImageShowcaseSectionModel(section)
         }
         return nil
     }
     
-    private func decodeSectionIdentifier(for section: ComponentSectionCodable) -> String? {
-        if let identifierKey = section["sectionType"],
-           let identifierValue = identifierKey.value as? String {
-            return identifierValue
+    // MARK: - ButtonComponentSection
+    
+    private func makeButtonComponentSectionModel(_ section: ButtonComponentSection) -> ComponentSectionModel? {
+        return .init(section: DefaultComponentSection.buttonSection(section: section))
+    }
+    
+    private func makeButtonComponentSection(_ section: ComponentSectionProtocol) -> ButtonComponentSectionView? {
+        if case DefaultComponentSection.buttonSection(let section) = section {
+            return resolver.resolveUnwrapping(ButtonComponentSectionView.self, argument: section)
         }
         return nil
     }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol ButtonComponentViewDelegate: AnyObject {
-    func didTapButton(_ view: ButtonComponentView)
+    func didTapView(_ view: ButtonComponentView)
 }
 
 class ButtonComponentView: UIView {
@@ -85,7 +85,7 @@ class ButtonComponentView: UIView {
     
     // MARK: - PUBLIC SETUP
     
-    func setup(with model: ButtonComponent) {
+    func setup(with model: ButtonComponentSection) {
         if let title = model.title {
             titleLabel.text = title
         }
@@ -97,7 +97,7 @@ class ButtonComponentView: UIView {
         }
     }
     
-    func setButtonType(for type: ButtonComponent.ButtonType) {
+    func setButtonType(for type: ButtonComponentSection.ButtonType) {
         switch type {
         case .primary:
             contentStackView.backgroundColor = .black
@@ -114,8 +114,8 @@ class ButtonComponentView: UIView {
     
     // MARK: - HANDLERS
     
-    private func handleImage(with imageName: String) {
-        guard let image = UIImage(systemName: imageName) else { return }
+    private func handleImage(with image: COREImage) {
+        guard let image = UIImage(systemName: image.rawValue) else { return }
         imageView.image = image
         imageView.isHidden = false
     }
@@ -123,6 +123,6 @@ class ButtonComponentView: UIView {
     // MARK: - ACTIONS
     
     @objc private func didTapView() {
-        delegate?.didTapButton(self)
+        delegate?.didTapView(self)
     }
 }

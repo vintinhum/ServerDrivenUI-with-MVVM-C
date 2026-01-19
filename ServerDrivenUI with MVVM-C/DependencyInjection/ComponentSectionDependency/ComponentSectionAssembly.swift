@@ -12,6 +12,7 @@ class ComponentSectionAssembly: Assembly {
     func assemble(container: Container) {
         componentSectionFactoryRegisters(container)
         componentSectionControllerRegisters(container)
+        buttonSectionRegisters(container)
         imageShowcaseSectionRegisters(container)
     }
     
@@ -30,6 +31,19 @@ class ComponentSectionAssembly: Assembly {
             let sectionFactory = resolver.resolveUnwrapping(ComponentSectionFactoryProtocol.self)
             let sectionContainer = ComponentSectionContainer(sectionFactory: sectionFactory)
             return ComponentSectionController(container: sectionContainer)
+        }
+    }
+    
+    // MARK: - BUTTON SECTION
+    
+    private func buttonSectionRegisters(_ container: Container) {
+        container.register(ButtonComponentSectionViewModel.self) { (_, section: ButtonComponentSection) in
+            return ButtonComponentSectionViewModel(section: section)
+        }
+        
+        container.register(ButtonComponentSectionView.self) { (resolver, section: ButtonComponentSection) in
+            let viewModel = resolver.resolveUnwrapping(ButtonComponentSectionViewModel.self, argument: section)
+            return ButtonComponentSectionView(viewModel: viewModel)
         }
     }
     
