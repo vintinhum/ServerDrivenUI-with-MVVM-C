@@ -101,8 +101,8 @@ class ImageShowcaseComponentView: UIView {
     func setup(with model: ImageShowcaseComponentSection) {
         titleLabel.text = model.title
         handleImage(with: model.image)
-        button.setup(with: ButtonComponent(title: model.buttonTitle,
-                                           image: "chevron.right"))
+        button.setup(with: .init(title: model.buttonTitle,
+                                 image: "chevron.right"))
         if let type = model.buttonType {
             handleButtonType(with: type)
         }
@@ -132,7 +132,7 @@ class ImageShowcaseComponentView: UIView {
 }
 
 extension ImageShowcaseComponentView: ButtonComponentViewDelegate {
-    func didTapButton(_ view: ButtonComponentView) {
+    func didTapView(_ view: ButtonComponentView) {
         didTapButton()
     }
 }
