@@ -34,6 +34,11 @@ class HomeViewModel {
         }
     }
     
+    func reload() {
+        viewStateObserver.onNext(.loading)
+        retrieveSections()
+    }
+    
     // MARK: - HANDLERS
     
     private func handleRetrieveSections(_ result: Result<ComponentSectionDataModel, DefaultUseCaseError>) {

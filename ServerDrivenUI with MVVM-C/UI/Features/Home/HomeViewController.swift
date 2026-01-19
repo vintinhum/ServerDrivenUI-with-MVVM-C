@@ -56,7 +56,11 @@ class HomeViewController: ComponentSectionController {
     
     // MARK: - ACTIONS
     
-    override func sectionController(_ section: ComponentSectionViewProtocol, didSelect: ()) { }
+    override func sectionController(_ section: ComponentSectionViewProtocol, didSelectWith action: ComponentSectionActionProtocol) {
+        if let action = action as? ComponentSectionActionEvent {
+            handleEventAction(action)
+        }
+    }
     
     // MARK: - HANDLERS
     
@@ -68,6 +72,13 @@ class HomeViewController: ComponentSectionController {
             container.loading()
         case .error(let error):
             print(error)
+        }
+    }
+    
+    private func handleEventAction(_ action: ComponentSectionActionEvent) {
+        switch action.eventType {
+        case .reload:
+            viewModel.reload()
         }
     }
 }
