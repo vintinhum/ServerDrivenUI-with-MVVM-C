@@ -13,6 +13,7 @@ class ComponentSectionAssembly: Assembly {
         componentSectionFactoryRegisters(container)
         componentSectionControllerRegisters(container)
         buttonSectionRegisters(container)
+        separatorSectionRegisters(container)
         imageShowcaseSectionRegisters(container)
     }
     
@@ -44,6 +45,19 @@ class ComponentSectionAssembly: Assembly {
         container.register(ButtonComponentSectionView.self) { (resolver, section: ButtonComponentSection) in
             let viewModel = resolver.resolveUnwrapping(ButtonComponentSectionViewModel.self, argument: section)
             return ButtonComponentSectionView(viewModel: viewModel)
+        }
+    }
+    
+    // MARK: - SEPARATOR SECTION
+    
+    private func separatorSectionRegisters(_ container: Container) {
+        container.register(SeparatorComponentSectionViewModel.self) { (_, section: SeparatorComponentSection) in
+            return SeparatorComponentSectionViewModel(section: section)
+        }
+        
+        container.register(SeparatorComponentSectionView.self) { (resolver, section: SeparatorComponentSection) in
+            let viewModel = resolver.resolveUnwrapping(SeparatorComponentSectionViewModel.self, argument: section)
+            return SeparatorComponentSectionView(viewModel: viewModel)
         }
     }
     

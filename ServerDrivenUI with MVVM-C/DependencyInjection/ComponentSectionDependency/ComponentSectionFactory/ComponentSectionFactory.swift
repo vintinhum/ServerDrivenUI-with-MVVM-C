@@ -27,6 +27,8 @@ class ComponentSectionFactory: ComponentSectionFactoryProtocol {
         // Add a new case for each section to be developed.
         case ComponentSection.buttonSection.rawValue:
             return makeButtonComponentSection(section)
+        case ComponentSection.separatorSection.rawValue:
+            return makeSeparatorSection(section)
         case ComponentSection.imageShowcaseSection.rawValue:
             return makeImageShowcaseSection(section)
         default:
@@ -52,6 +54,9 @@ class ComponentSectionFactory: ComponentSectionFactoryProtocol {
         if let section: ButtonComponentSection = section.decodeAnyCodable(),
             section.identifier == ComponentSection.buttonSection.rawValue {
             return makeButtonComponentSectionModel(section)
+        } else if let section: SeparatorComponentSection = section.decodeAnyCodable(),
+                  section.identifier == ComponentSection.separatorSection.rawValue {
+            return makeSeparatorSectionModel(section)
         } else if let section: ImageShowcaseComponentSection = section.decodeAnyCodable(),
                     section.identifier == ComponentSection.imageShowcaseSection.rawValue {
             return makeImageShowcaseSectionModel(section)
@@ -68,6 +73,19 @@ class ComponentSectionFactory: ComponentSectionFactoryProtocol {
     private func makeButtonComponentSection(_ section: ComponentSectionProtocol) -> ButtonComponentSectionView? {
         if case DefaultComponentSection.buttonSection(let section) = section {
             return resolver.resolveUnwrapping(ButtonComponentSectionView.self, argument: section)
+        }
+        return nil
+    }
+    
+    // MARK: - SeparatorComponentSection
+    
+    private func makeSeparatorSectionModel(_ section: SeparatorComponentSection) -> ComponentSectionModel? {
+        return .init(section: DefaultComponentSection.separatorSection(section: section))
+    }
+    
+    private func makeSeparatorSection(_ section: ComponentSectionProtocol) -> SeparatorComponentSectionView? {
+        if case DefaultComponentSection.separatorSection(let section) = section {
+            return resolver.resolveUnwrapping(SeparatorComponentSectionView.self, argument: section)
         }
         return nil
     }

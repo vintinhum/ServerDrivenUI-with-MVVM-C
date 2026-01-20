@@ -25,10 +25,7 @@ final class ComponentSectionContainerCell: UITableViewCell {
     func setup(with section: ComponentSectionViewProtocol) {
         resetSubviews()
         contentView.addSubview(section)
-        section.constraintToSuperView(top: 8,
-                                      leading: 24,
-                                      trailing: -24,
-                                      bottom: -8)
+        handleSectionConstraints(for: section)
         layoutSubviews()
     }
     
@@ -37,6 +34,15 @@ final class ComponentSectionContainerCell: UITableViewCell {
     private func resetSubviews() {
         contentView.subviews.forEach { view in
             view.removeFromSuperview()
+        }
+    }
+    
+    private func handleSectionConstraints(for section: ComponentSectionViewProtocol) {
+        if let section = section as? SeparatorComponentSectionView {
+            section.constraintToSuperView()
+        } else {
+            section.constraintToSuperView(leading: 24,
+                                          trailing: -24)
         }
     }
 }
